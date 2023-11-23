@@ -4,9 +4,14 @@
 $psw_length = isset($_GET['psw_length']) ? $_GET['psw_length'] : '';
 var_dump('numero', $psw_length);
 
-// function generateRandomPassword($length) {
-
-// }
+function generateRandomPassword($length) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $chars[rand(0, strlen($chars) - 1)];
+    }
+    return $randomString;
+}
 
 ?>
 
@@ -24,7 +29,7 @@ var_dump('numero', $psw_length);
     <input type="number" name="psw_length">
     <button type="submit">Genera la password</button>
 </form>
-
+<div>La password è: <?php echo generateRandomPassword($psw_length)?></div>
 
 </body>
 </html>
