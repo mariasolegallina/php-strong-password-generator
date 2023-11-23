@@ -1,4 +1,12 @@
 <?php
+// $psw_length = $_GET['psw_length'];
+
+$psw_length = isset($_GET['psw_length']) ? $_GET['psw_length'] : '';
+var_dump('numero', $psw_length);
+
+// function generateRandomPassword($length) {
+
+// }
 
 ?>
 
@@ -16,6 +24,7 @@
     <input type="number" name="psw_length">
     <button type="submit">Genera la password</button>
 </form>
+
 
 </body>
 </html>
