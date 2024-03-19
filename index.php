@@ -5,12 +5,16 @@ function psw_generator($len)
 {
     $password = '';
 
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?';
+    $chars_len = strlen($chars) - 1;
+
     for ($i = 0; $i < $len; $i++) {
+        $password .= $i;
     }
     return $password;
 };
 
-// recupero la lunghezza della password
+// recupero la lunghezza della password richiesta
 $psw_length = $_GET['psw-length'] ?? false;
 $psw_length = intval($psw_length);
 // var_dump($psw_length);
@@ -38,6 +42,8 @@ $psw_length = intval($psw_length);
                     <h3 class="fs-6 mb-3">Imposta la lunghezza della tua password</h3>
                     <input required type="number" min="8" max="24" name="psw-length">
                     <input type="submit" value="Genera">
+                    <h1>La tua password è:</h1>
+                    <p><?php echo psw_generator($psw_length) ?></p>
                 </form>
             </div>
         </div>
