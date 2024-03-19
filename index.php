@@ -9,7 +9,7 @@ function psw_generator($len)
     $chars_len = strlen($chars) - 1;
 
     for ($i = 0; $i < $len; $i++) {
-        $password .= $i;
+        $password .= $chars[rand(0, $chars_len)];
     }
     return $password;
 };
@@ -42,9 +42,15 @@ $psw_length = intval($psw_length);
                     <h3 class="fs-6 mb-3">Imposta la lunghezza della tua password</h3>
                     <input required type="number" min="8" max="24" name="psw-length">
                     <input type="submit" value="Genera">
-                    <h1>La tua password è:</h1>
-                    <p><?php echo psw_generator($psw_length) ?></p>
                 </form>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center row mt-5">
+            <div class="text-bg-light p-3 col-6 p-5 border border-light-subtle rounded-2">
+                <div class="result">
+                    <h3 class="fs-6 mb-3">La tua password sicurissima di <?php echo $psw_length; ?> caratteri è:</h3>
+                    <p><?php echo psw_generator($psw_length) ?></p>
+                </div>
             </div>
         </div>
     </div>
