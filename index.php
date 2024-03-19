@@ -1,7 +1,20 @@
 <?php
 
-$psw_length = $_GET['psw-length'] ?? 0;
-var_dump($psw_length);
+// funzione per generare password
+function psw_generator($len)
+{
+    $password = '';
+
+    for ($i = 0; $i < $len; $i++) {
+    }
+    return $password;
+};
+
+// recupero la lunghezza della password
+$psw_length = $_GET['psw-length'] ?? false;
+$psw_length = intval($psw_length);
+// var_dump($psw_length);
+
 
 ?>
 
@@ -18,11 +31,12 @@ var_dump($psw_length);
 </head>
 
 <body>
-    <div class="container py-5">
+    <div class="container px-2 py-4">
         <div class="d-flex justify-content-center row">
-            <div class="col-4">
+            <div class="text-bg-light p-3 col-6 p-5 border border-light-subtle rounded-2">
                 <form action="" method="GET">
-                    <input type="number" min="8" max="24" name="psw-length">
+                    <h3 class="fs-6 mb-3">Imposta la lunghezza della tua password</h3>
+                    <input required type="number" min="8" max="24" name="psw-length">
                     <input type="submit" value="Genera">
                 </form>
             </div>
